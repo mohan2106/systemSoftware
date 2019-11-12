@@ -1,0 +1,292 @@
+1. make .sh file
+   #! /bin/bash #shebang
+
+   chmod +x $1
+2. echo 'The date today is ' `date`
+3. pwd
+   dir=`pwd` 
+   cd ~
+   pwd
+   cd $dir
+   pwd
+4. for i in *; do echo $i; done
+5. #!/bin/bash
+	read -p 'Username: ' uservar
+	read -sp 'Password:' passvar
+	echo
+	echo $uservar $passvar
+6. #!/bin/bash
+
+
+   echo "$#"
+7. #!/bin/bash
+
+
+<<END
+	Nishank Siddharth	
+	180101050	
+	Semester III
+	bash
+END
+echo "This is the first shell program.Please enter the username."
+read var
+echo "Username::$var" 
+#End of the program
+
+8. #!/bin/bash
+
+
+read var
+if [ $var -gt 0 ]
+then 
+ 	echo "Positive"
+elif [ $var -lt 0 ]
+then
+	echo "Negative"
+else
+	echo "Zero"
+fi
+9. #!/bin/bash
+
+echo "enter filename :"
+read file
+if [ -e $file ]
+then 
+	echo "File exists" 
+   if [ -r $file ]
+   then	
+	echo "File has read permission"
+   else
+	echo "File doesnt have read permission"
+   fi
+   if [ -w $file ]	
+   then
+	echo "File has write permission"
+   else
+	echo "File doesnt have write permission"
+   fi   
+   if [ -x $file ]
+   then	
+	echo "File has executable permission"
+   else
+     	echo "File doesnt have executable permission"
+   fi
+else	
+	echo "File doesn't exists"
+fi
+10. #!/bin/bash
+
+echo "Enter the total numbers :"
+read num
+echo "Enter numbers"
+i=0
+sums=0
+while [ $i -lt $num ]
+do
+	read a[$i]
+        i=`expr $i + 1` 
+done
+
+for i in "${a[@]}"
+do
+   sums=`expr $sums + $i`
+done
+avg=`echo "$sums / $num" | bc -l`
+printf '%0.3f' "$avg"
+
+11.#!/bin/bash
+
+ans=`echo "20.5^5" | bc -l`
+printf '%0.4f' "$ans"
+12.#!/bin/bash
+
+read input
+len=`expr length "$input"`
+if [ $len == 1 ]
+then 
+ 	case $input in
+     		[a-z]*)
+          	  echo "Lowercase"
+          		;;
+     		[A-Z]*)
+	          echo "Uppercase"
+	  		;;
+     		[0-9]*)
+	 	  echo "Numbers"
+	  		;;
+     		*)
+                  echo "NIL"
+           	  ;;
+	esac
+else
+      echo "unknown input"
+fi
+13. #!/bin/bash
+
+read num1
+read num2
+read op
+
+case "$op" in
+      "+" )
+         avg=`echo "$num1 + $num2" | bc -l`
+         printf '%0.3f' "$avg"
+          echo
+	  ;;
+      "-" )
+	 avg=`echo "$num1 - $num2" | bc -l`
+         printf '%0.3f' "$avg"
+          echo ;;
+
+      "*" )
+           avg=`echo "$num1 * $num2" | bc -l`
+         printf '%0.3f' "$avg"
+	  echo ;;
+      "/" )
+	    avg=`echo "$num1 / $num2" | bc -l`
+         printf '%0.3f' "$avg"
+	   echo ;;
+       * )
+	    echo "INVALID" ;;
+
+
+esac
+
+14. #!/bin/bash
+
+read a b 
+  
+
+m=$a 
+
+if [ $b -lt $m ] 
+then 
+m=$b 
+fi 
+  
+
+while [ $m -ne 0 ] 
+do
+x=`expr $a % $m` 
+y=`expr $b % $m` 
+  
+
+if [ $x -eq 0 -a $y -eq 0 ] 
+then 
+  
+
+echo gcd of $a and $b is $m 
+break
+fi 
+m=`expr $m - 1` 
+  
+done
+15. #!/bin/bash
+
+while true 
+do
+	read s
+	if [[ "$s" == "Bye" ]] 
+	then
+		break
+	fi
+	echo $s
+	echo
+
+	
+done
+16.#!/bin/bash
+
+for (( i = 0; i < 2; i++ )); do
+	ls 
+	pwd
+	date
+done 
+17.#!/bin/bash
+
+read string
+
+if [[ "$(echo "$string" | rev)" == "$string" ]]; then
+    echo "YES"
+	echo ${#string}
+else
+ echo "NO"
+ echo ${#string}
+fi
+
+18. #!/bin/bash
+
+read file1
+read file2
+if [[ -e $file1 && -e $file2 ]]; then
+	echo "YES"
+else echo "NO"	
+fi
+
+19.#!/bin/bash
+
+select drink in tea coffee water juice appe all none
+do 
+	case $drink in
+		tea|coffee|water|all)
+			echo "Go to canteen"
+			;;
+		juice|appe)
+		    echo "Available at home"
+		    ;;
+		none)
+		    break
+		    ;;
+		*)
+		   echo "Invalid selection"       	
+	esac
+done
+
+
+20.#!/bin/bash
+func(){
+    wc -l < $1
+    wc -w < $1
+    wc -c < $1 
+}
+read file
+func $file
+
+21.#!/bin/bash
+
+row=3
+col=3
+array1=()
+array2=()
+array3=()
+for (( i = 0; i < row; i++ )); do
+	read -a arr
+	for (( j = 0; j < col; j++ )); do
+		index=$((i*3+j))
+		array1[${index}]=${arr[$j]}
+    done
+done
+for (( i = 0; i < row; i++ )); do
+	read -a arr
+	for (( j = 0; j < col; j++ )); do
+		index=$((i*3+j))
+		array2[${index}]=${arr[$j]}
+    done
+done
+for (( i = 0; i < row; i++ )); do
+	
+	for (( j = 0; j < col; j++ )); do
+		index=$((i*3+j))
+		array3[${index}]=`expr ${array1[${index}]} + ${array2[${index}]}`
+    done
+done
+for (( i = 0; i < row; i++ )); do
+	
+	for (( j = 0; j < col; j++ )); do
+		index=$((i*3+j))
+		echo -n ${array3[${index}]} " "
+    done
+    echo
+done
+
+	
