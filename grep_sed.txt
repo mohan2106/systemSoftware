@@ -1,0 +1,74 @@
+GREP:-
+	$ grep '<string>' <file-name>
+	$ grep -i 'string' <file-name> //case insensitive work for both string or String
+	$ grep -iw 'string' <file-name> //search exact string i mean 'string' should not be sub-string of other string
+	$ grep -A <N> -i 'string' <file-name> //will print N lines after the string match
+	$ grep -B <N> -i <file-name> // n lines before the string
+	$ grep -C <N> -i <file-name> // n lines around the string
+	$ grep -r 'string' <file-name> //recursively search in sub-directory
+	$ grep -r 'string' * | wc -l //seach every file inside parent directory
+	$ grep -o 'string' <file-name> // print the count of occurence
+	$ grep -n "boo" a_file //numbering the found line
+	$ grep -vn "boo" a_file //-v will print all the text not containg "boo"
+	$ grep -c //tell grep to print only no of count in each file
+	$ grep -l "boo" * //will prinf file name in which text is found
+	$ grep -x "boo" a_file //-x looks for exact matching of the word
+	$ grep "e$" a_file //search for lines ending with char e
+	$ grep -E "boots?" a_file //? command will search for 0 or 1 occurance of prev char
+	$ grep -E "boot|boots" a_file //boot boots (search multiple words)
+	$ grep '\$' a_file // \ is used for the matching of regular expression otherwise it will print any line end with any char bcz $ represent end of line
+
+==================================================AWK Command
+$ awk '{print}' <file-name>
+$ awk '{print $1}' <file-name> // print 1st column of every line
+$ awk '{print $1,$2}' <file-name> // print 1st and 2nd column of every line with space
+$ awk '{print $1.$2}' <file-name> // append 1st and 2nd column of every line and print
+$ awk '/<text>/ {print}' <file-name> //will print every line containing <text>
+$ awk '/[a-z]/ {print}' <file-name> //print all file having atleast one lowercase
+$ awk '/^[0-9]/ {print}' <filr-name> //print all line starting with number
+$ awk '/[0-9]$/ {print}' <file-name> // print all line end with number
+$ awk '{ if($1 ~ /mohan/) print}' //check if first column is mohan than print
+$ awk -F: '{ print $2 }' <file-name> /
+====================================================SED COMMAND
+$ sed -e 's/[1-9][1-9]*/(&)/' test.txt //will print () across
+$ sed -e 's/[0-9]*/(&)/' my_file
+$ ls -l | sed -n -e '/^d/ p //print all the line starting with d
+$ sed -e '/^#/ !p' my_file // !p command will not print all the line strating with #
+$ sed -e -n '11,$ d' my_file //will delete line 11 to end of file
+
+
+============================================SHELL COMMAND
+SHELL EXPNSSION:-
+	$ echo a{d,c,b}e //ade ace ade
+	$ mkdir /usr/local/src/bash/{old,new,dist,bugs}
+	$ touch {1..5}.txt //create 5 txt file
+	$ rm ?.txt //will remove all .txt file having name start with sigle alphanum
+e.g. 1.txt a.txt (but not ab.txt)
+	$ ~ // will take you to home/mohan directory $HOME
+	$ ~/foo // $HOME/foo
+	$ ~+/foo // $PWD/foo
+	$ ~-/foo // inside old working directory
+	$ touch ~-/test.txt //create a file in prev working directory
+	$ touch {1..10}.txt
+	$ file=*
+	$ echo ${file}	  //print all the files name
+	$ echo "${file}" // print *
+	$ echo "${file[0]}" //print *
+	$ echo "${file[1]}" //print 1.txt
+	$ echo "${file[@]}" //print all the file including * (*,1.txt,2.txt,3.txt,...)
+	$ file=(*) //difining like this will store * in the fileecho ${file}
+	$ test="this is mohan"
+	$ echo "${test:I:J}" //print mohan starting with Ith index to I+Jth
+	$ string=01234567890abcdefgh
+	$ echo ${string:7} // 7th index onward (7890abcdefgh)
+	$ echo ${string:7:2} //78  (2) act as head command
+	$ echo ${string:7:-2} //7890abcdef (-2) act as tail command
+	$ echo ${string: -7:-2} //bcde
+	$ set -- 01234567890abcdefgh
+	$ echo ${1:7} //7890abcdefghf
+	$ set -- 1 2 3 4 56 7 8 9 a s d f g h jk 
+	$ echo ${@:7} //7th index onward
+	$ $(command) //command substitution
+	$ $(( expression )) //arithmetic expanssion e.g $((4+5)) => 9
+	
+

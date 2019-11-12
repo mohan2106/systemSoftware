@@ -1,0 +1,73 @@
+remove files/directry:-
+	$ rm -r <folder-name>
+download a file:-
+	$ wget <file-name>
+	$ tar xvzf <file-name> //extracting a .tar.gz folder
+	$ tar xvzf <file-name> -C <new-address> //to extract in different location
+		e.g. (tar xvzf mohan.tar.gz -C ~/Desktop/)
+		Where the -C argument is used to specify the path to place the file.
+To extract any specific file from (.tar.gz folder):-
+	 e.g. (To extract test.doc file from the file.tar.gz tarball, use the following command)
+	$ tar -xvzf file.tar.gz test.doc
+To view a detailed table of content without extracting:-
+	$ tar -tvf file.tar.gz 
+	
+Folder structure:-
+	$ tree //this will show the folder structure of that directory
+listing all the files/folder with permissions:-
+	$ ls -l //all folder/file with permission and user with last modified detail ***(16)
+	$ ls -a //all folder including hidden one
+	$ ls -la //all folder including hidden one with permission
+Listing
+	***[Remember (ls -abc) is same as (la -a -b -c)]****
+	$ ls -r //listing in reverse order
+	$ ls -R //recursively list sub directories and files
+	$ ls -lS //Sort Files by File Size with permission nd last modified    ***(15)
+	$ find . //will recursively list sub directories and files in current directory
+	$ find ./<subdirectory-name>/ //will recursively list sub directories/file in given address
+	$ ls -R | sort //listing in alphabatical order    ***(14)
+	$ ls -S //listing in decreasing order of file size
+	$ ls -RSr //increasing size of all files(nested)
+	$ find . -type f -name *.txt //will find all the file with extension .txt ***(36)
+	$ ls -R | grep '.txt' //will also work ***(36)	
+Touch command:-
+	$ touch <file-name.txt> //will create a file for  you in that directory ***(19)
+	$ echo "Mohan:)"  ***(20)
+	$ echo "Mohan" > file-name.txt //print your name in file-name.txt   ***(21)
+	$ echo "new Line" >> file-name.txt //add new line in file-name.txt   ***(23)
+	$ cat file-name.txt //display file detail	***(22)
+File permission:-
+	$ ls -l //will show the file permission    ***(23)
+	$ sudo chmod 444 <file-name> //readonly for all user,group and other
+	$ sudo chmod 644 <file-name> //read,write for user readonly for group and other
+Reboot:-
+	$ reboot
+word count:-
+	syntax:: {$ wc [option] filename }
+	$ wc -l <file-name> //no of line
+	$ wc -w <file-name> //no of word
+	$ wc -m <file-name> //no of char
+	$ wc -c <file-name> //no of bytes
+	$ wc <file-name> //no of {line,word,byte}
+display content of all file .txt:-
+	$ cat $(find . -name *.txt) ***(39)
+	$ head -n 5 <file-name> //display first 5 line
+	$ tail -n 10 <file-name> //last 10 line
+	$ head -n 375 <file-name> |tail -n 4  //display (375-4) to 375 line
+	$ head -n 40 <file-name> |cut -d',' -f<n> // here -fn represent n-th column, -d',' splits the row by ',' and tyhan print first 40 line of seconf column if used -f2 in last
+	e.g.:-
+		head -n 40 1000000\ Sales\ Records.csv |cut -d',' -f2  ***(42)
+	$ head -n 40 1000000\ Sales\ Records.csv |cut -d',' -f3 |sort ***(43)
+	$ head -n 40 1000000\ Sales\ Records.csv |cut -d',' -f3 |sort |uniq ***(44)
+top command:-
+	$ top //will show current running process
+	$ ps //will show current running process
+	$ ps -aux | grep 'chrome' //get process id
+	$ kill <process-d>
+
+
+	 
+
+
+
+

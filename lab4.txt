@@ -1,0 +1,79 @@
+$ git init
+$ echo "first line">prog.c
+$ git status
+$ git add .
+$ git rm --cached prog.c  //removing stage
+$ git rm --cached prog.c --dry-run   //dry run without actual run the command$ git
+$ git commit -m “Added the first line”
+$ git config --global user.email "you@iitg.ernet.in" 
+$ git config --global user.name "Your Name"
+$ git rev-parse HEAD //print the key of commited id
+$ git rev-parse --short HEAD //short key
+$ git remote add origin https://github.com/mohan2106/Test-proj.git
+$ git push -u origin master
+$ echo "new line">>prog.c
+$ git checkout -- prog.c //this will remove the new change after last commit
+$ git reset HEAD -- prog.c //will un-stage a staged file (first stage a file with editing and commiting than unstage it using given command)
+$ git log
+$ git log --oneline //short version of log
+$ git pull origin <branch-name>
+$ git branch <branch-name> //add a new branch to git named <branch-name>
+$ git branch //list all branch
+$ git checkout <branch-name> //will change branch an dwork on new branch
+$ git clone <repo-url>
+$ touch .gitignore
+$ git '*.o'>>.gitignore //this will tell git to ignore *.o file
+$ git stash
+$ git stash pop
+
+=============================================command line terminal
+ 2160  rm -r Test-proj/
+ 2161  ls
+ 2162  cd Test-proj/
+ 2163  ls
+ 2164  cd ..
+ 2165  rmdir Test-proj/
+ 2166  rm -r -f Test-proj/
+ 2167  ls
+ 2168  touch .gitignore
+ 2169  ls
+ 2170  ls -a
+ 2171  echo '*.o' >>.gitignore
+ 2172  touch mohan{1..9}.o
+ 2173  ls
+ 2174  echo '*.o'>>.gitignore
+ 2175  ls
+ 2176  git status
+ 2177  git add .
+ 2178  git commit -m "gitignore"
+ 2179  git status
+ 2180  git log
+ 2181  l
+ 2182  ls
+ 2183  cat new.txt
+ 2184  echo "next line">>new file
+ 2185  git status
+ 2186  git stash
+ 2187  cat new.txt
+ 2188  echo "third line'>>new.txt
+ 2189  echo "third line">>new.txt
+ 2190  cat new
+ 2191  cat new.txt
+ 2192  git stash pop
+ 2193  cat new.txt
+ 2194  git diff
+ 2195  git checkout local
+ 2196  echo "added">>mohan1.txt
+ 2197  cat mohan1.txt
+ 2198  git stash save "changed mohan1.txt"
+ 2199  git diff
+ 2200  git stash list
+ 2201  git stash apply stash@{0}
+ 2202  git checkout -- .
+ 2203  git status
+ 2204  rm mohan1.txt
+ 2205  ls
+ 2206  git stash pop
+ 2209  history | tail -n 50 >> ../ubuntu_command/lab/lab4.txt
+==============================================================================
+

@@ -1,0 +1,135 @@
+$ mkdir sccs_test
+$ cd sccs_test
+$ echo 'This is the first line.' > prog.c$ sccs create prog.c	
+$ mkdir SCCS
+$ sccs create prog.c
+$ sccs get prog.c
+$ sccs edit prog.c
+$ sccs info
+$ sccs info -umohan
+$ echo "This is a second line">>prog.c
+$ sccs diffs prog.c  //get edited line
+$ sccs delta prog.c
+$ sccs edit prog.c
+$ echo ‘This is the third line.’ >> prog.c
+$ sccs unedit prog.c  //Discard the changes i.e. revert to the last version
+
+GET COPY OF V1.1
+	$ sccs get -r1.1 prog.c
+	## or
+	## Get a copy of version 1.1 of prog.c for editing
+	$ sccs edit -r1.1 prog.c
+$ sccs prt prog.c //print history of file
+$ sccs delta prog.c
+$ sccs edit -x1.2 prog.c //this will exclude data included in v1.2 
+
+=============================added from terminal
+ 1975  sccs info -ucse
+ 1976  sccs info -umohan
+ 1977  echo "This is a second line">>prog.c
+ 1978  cat prog.c
+ 1979  sccs diffs prog.c
+ 1980  sccs delta prog.c
+ 1981  sccs edit prog.c
+ 1982  echo "third line">>prog.c
+ 1983  cat prog.c
+ 1984  ls
+ 1985  sccs unedit prog.c
+ 1986  cat prog.c
+ 1987  ls
+ 1988  sccs delta prog.c
+ 1989  sccs get prog.c
+ 1990  sccs edit prog.c
+ 1991  echo "Third Line">>prog.c
+ 1992  sccs diffs prog.c
+ 1993  sccs delta prog.c
+ 1994  sccs log
+ 1995  sccs status
+ 1996  sccs get -r1.1 prog.c
+ 1997  cat prog.c
+ 1998  sccs edit -r1.1 prog.c
+ 1999  echo "edited in v1.1" >>prog.c
+ 2000  sccs delta prog.c
+ 2001  sccs get -v1.1 prog.c
+ 2002  sccs get -r1.1 prog.c
+ 2003  sccs info
+ 2004  sccs get -r1.2 prog.c
+ 2005  cat prog.c
+ 2006  sccs get -r1.3 prog.c
+ 2007  cat prog.c
+ 2008* 
+ 2009  cat prog.c
+ 2010  sccs edit prog.c
+ 2011  sccs edit -r1.3 prog.c
+ 2012  sccs get -r1.4 prog.c
+ 2013  sccs get -r1.3 prog.c
+ 2014  cat prog.c
+ 2015  sccs get -r1.1 prog.c
+ 2016  ls
+ 2017  cat prog.c
+ 2018  sccs get -r1.2 prog.c
+ 2019  cat prog.c
+ 2020  sccs edit -r1.1 prog.c
+ 2021  echo "edited in v1.1" >> prog.c
+ 2022  cat prog.c
+ 2023  sccs delta prog.c
+ 2024  cat prog.c
+ 2025  ls
+ 2026  cd SCCS
+ 2027  ls
+ 2028  cd ..
+ 2029  sccs get -r1.4 prog.c
+ 2030  cat prog.c
+ 2031  sccs prt prog.c
+ 2032  cat prog.c
+ 2033  sccs get -r1.4 prog.c
+ 2034  sccs prt prog.c
+ 2035  sccs get -r1.4 prog.c
+ 2036  sccs prt prog.c
+ 2037  sccs get -r1.1 prog.c
+ 2038  sccs edit -r1.1 prog.c
+ 2039  cat prog.c
+ 2040  echo "added in v1.1">>prog.c
+ 2041  cat prog.c
+ 2042  sccs delta prog.c
+ 2043  sccs get -r1.1.2.1 prog.c
+ 2044  cat prog.c
+ 2045  sccs get prog.c
+ 2046  echo "chal hatt">>prog.c
+ 2047  sccs edit prog.c
+ 2048  sccs edit -x1.2 prog.c
+ 2049  sccs prt prog.c
+ 2050  sccs diffs prog.c
+ 2051  cat prog.c
+ 2052  sccs edit -r1.2 prog.c
+ 2053  sccs edit -x1.2 prog.c
+ 2054  la
+ 2055  ls
+ 2056  sccs delta prog.c
+ 2057  ls
+ 2058  sccs edit -x1.2 prog.c
+ 2059  cat prog.c
+ 2060  sccs delta prog.c
+ 2061  sccs edit -r1.6 prog.c
+ 2062  cat prog.c
+ 2063  sccs delta prog.c
+ 2064  sccs edit prog.c
+ 2065  cat prog.c
+ 2066  echo "thi sis edited">>prog.c
+ 2067  sccs delta prog.c
+ 2068  sccs info
+ 2069  sccs ptr prog.c
+ 2070  sccs prt prog.c
+ 2071  history
+ 2072  tail -n 100 history >> ../ubuntu_command/lab/lab3.txt
+ 2073  tail -n 100 history > mohan.txt
+ 2074  history |tail -n 100  >> ../ubuntu_command/lab/lab3.txt
+
+========================================edited in txt================
+## Note: 
+## The following command excludes a range of deltas -- delta 1.3 to delta 1.5 .
+## $ sccs edit -x1.3-1.5 prog.c
+## The following command excludes delta 1.3 to the last delta of release 1.
+## If prog.c has 10 versions in release 1: delta 1.1 to delta 1.10, then the following 	command excludes delta 1.3 to delta 1.10.
+## $ sccs edit -x1.3-1 prog.c
+

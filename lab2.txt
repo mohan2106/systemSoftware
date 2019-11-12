@@ -1,0 +1,16 @@
+User add:-
+	$ sudo useradd <user-name>		***(1)
+	$ sudo userdel <user-name>
+	$ sudo cat /etc/passwd			***(2)		
+	$ sudo groupadd cs242			***(3)
+	$ sudo deluser <user-name> <group-name>  //deluser will del user from a group while userdel will delete the user from the system
+	$ sudo adduser <user-name> <group-name>  //remember the differece between adduser and useradd. this command will add existing user to group
+	$ useradd -d /home/test -m -g developer -s bin/bash testuser //e.g. of useradd
+
+
+
+======================================LAB-3====================
+link for makefile:-
+	https://opensource.com/article/18/8/what-how-makefile
+	make -s //silently run the makefile
+	

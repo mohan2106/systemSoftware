@@ -1,0 +1,120 @@
+1). make mo.sh file 
+	$touch mo.sh
+		//inside mo.sh=====================CODE
+			#! /bin/bash
+			chmod +x $1
+		==================================CODE END
+	// make it executable as
+	$ chmod +x mo.sh
+	$ ./mo.sh <file-name> //this will make file-name executable file
+2). $ echo "Todays date is" $(date)
+3). $ gedit mo.sh
+	=============================INSIDE CODE
+	#! /bin/bash
+	pwd
+	=============================END
+4). $ for i in * ; do echo $i; done
+5). $ gedit mo.sh
+	==============================CODE
+	#! /bin/bash
+
+	echo "Enter username and password"
+	read name
+	read -s pass   	# -s command will hide the password
+	echo "The name is $name and password is $pass"
+	==============================END
+6). $ gedit mo.sh
+	=============================CODE
+	#! /bin/bash
+
+	echo $#  
+	=============================END
+	$* $@ (print all argument) $4 will print 4th argument
+7). $ gedit mo.sh
+	============================CODE
+	#! /bin/bash
+
+	:<<'END'
+	mohan
+	180101042
+	sem 3
+	bash
+	END
+
+	echo "This is the first shell program. Please enter the username."
+	read -a username    
+	echo "Username:: ${username[@]}"
+	=============================END
+	#also can read in a single variable separable by string
+		read username
+		echo "Username:: $username"
+8). $ gedit mo.sh
+	===========================CODE
+	#! /bin/bash
+
+	echo "Enter an Integer."
+	read no
+	if [ $no -gt 0 ]
+	then
+		echo "$no is Positive"
+	elif [ $no -lt 0 ]
+	then
+		echo "$no is Negative"
+	else
+		echo "$no is Zero"
+	fi
+	==============================END
+9). $ gedit mo.sh
+	=========================================================CODE
+	#! /bin/bash
+
+	echo "Enter file name: "
+	read filename
+	if [ -e $filename ]
+	then
+	   	echo "File exists";
+		if [ -r $filename ]
+		then
+		   echo "File has read access"
+		else
+		   echo "File does not have read access"
+		fi
+		if [ -w $filename ]
+		then
+		   echo "File has write access"
+		else
+		   echo "File does not have write access"
+		fi
+		if [ -x $filename ]
+		then
+		   echo "File has execute access "
+		else
+		   echo "File does not have execute access"
+		fi
+	else
+	   echo "File does not exist"
+	fi
+	==========================================================END
+10). ========================================CODE
+	#! /bin/bash
+
+	echo "Enter 5 integer"
+	read -a array
+	#array=(1 2 3 4 5)
+	sum=0
+	i=0
+	while [ $i -lt ${#array[@]} ]
+	do
+		sum=$(( $sum + ${array[$i]} ))
+		i=$(( $i + 1 ))
+	done
+	echo $(( $sum / 5 ))
+	=======================================END
+11). =========================================CODE`
+	#! /bin/bash
+ 
+	echo "scale=4;20.5^5" | bc
+	========================================END
+12). 
+	
+
